@@ -1,11 +1,23 @@
 const http = require("http");
 
+const todos = [
+  { id: 1, text: "todo One" },
+  { id: 2, text: "todo two" },
+  { id: 3, text: "todo three" },
+];
+
 const server = http.createServer((req, res) => {
-  res.setHeader("Content-Type", "text/html");
-  res.write("<h1>Hello </h1>");
-  res.write("<h1>Hello </h1>");
-  res.write("hello world"); //here this hello world can see in browser/postman
-  res.end();
+  res.setHeader("Content-Type", "application/json");
+  res.setHeader("X-Powered-By", "Node.js");
+  //res.write("<h1>Hello </h1>");
+  //res.write("<h1>Hello </h1>");
+  //res.write("hello world"); //here this hello world can see in browser/postman
+  res.end(
+    JSON.stringify({
+      success: true,
+      data: todos,
+    })
+  );
 });
 
 const PORT = 5000;
