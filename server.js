@@ -1,6 +1,9 @@
 const http = require("http");
 
 const server = http.createServer((req, res) => {
+  res.setHeader("Content-Type", "text/plain");
+  res.write("<h1>Hello </h1>");
+  res.write("<h1>Hello </h1>");
   res.write("hello world"); //here this hello world can see in browser/postman
   res.end();
 });
